@@ -100,15 +100,9 @@
  
 
   
-  
-
-
- 
-  
-  
-  
-  
 </style>
+
+
 
 
 <div  id="addcationcontainer">
@@ -151,11 +145,6 @@
 </div>  
 
  
-
-
-
-
-
 
 <div id="result" style=" display:block ; position:absolute; left:55%; top:25%; "> 
 </div>
@@ -212,15 +201,7 @@
 </div>
 
 
-   
  
-
-
-
-
-  
-
-
 
   
 
@@ -328,14 +309,7 @@ filled.style.backgroundColor = 'cyan';
 }
   
   
-
-  
-
-
-  
  
-    
-    
     
    function Reagentselected()
     {
@@ -366,11 +340,7 @@ filled.style.backgroundColor = 'cyan';
       
   }  
       
-      
-    
-    
-    
-
+   
       
     
     
@@ -404,13 +374,7 @@ x[0].className="CationHideOptions";
    
     }
     
-    
-    
- 
-  
-    
-    
-    
+   
     
     
     function cationselected()
