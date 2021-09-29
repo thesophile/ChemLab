@@ -1,54 +1,165 @@
 <style>
 
 
-
-  #banner {
-   border:solid red 2px;
+ /*The empty test tube */
+  #testtube {
+    border:solid red 2px;
     border-bottom-left-radius:20px;
     border-bottom-right-radius:20px;
     width: 50px;
     height: 150px;
-    background: #000;
+    background: silver;
     overflow: hidden;
     backface-visibility: hidden;
     transform: translate3d(0, 0, 0);
   }
-  /* add first state */
-  #banner .fill{
-     transform: translate(0, 150px);
-     transition: all cubic-bezier(.2, .6, .8, .4) 1s;
-  }
-  /* run animation when class .animate added */
-  /* EDIT: you dont need animation because it can be done only with transform translate */
+ 
+  
+.CationHideOptions {
+  
+  opacity: 0;
+  font-size:20px; 
+  background:lightgrey;
+  
+    height: 0px;
+    
+     -webkit-transition: all 0.5s linear;
+        -moz-transition: all 0.5s linear;
+         -ms-transition: all 0.5s linear;
+          -o-transition: all 0.5s linear;
+             transition: all 0.5s linear;
+}
 
-  #banner #waveShape {
-    animation-name: waveAction;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: 0.5s;
-    width: 300px;
-    height: 150px;
-    fill: #04ACFF;
+.CationShowOptions {
+   opacity: 1;
+  font-size:20px; 
+  background:lightgrey;
+  
+     height: 200px;
+     -webkit-transition: all 0.5s linear;
+        -moz-transition: all 0.5s linear;
+         -ms-transition: all 0.5s linear;
+          -o-transition: all 0.5s linear;
+             transition: all 0.5s linear;
+} 
+
+.ReagentHideOptions {
+  display:none;
+  opacity: 0;
+  font-size:20px; 
+  background:lightgrey;
+  
+    height: 0px;
+    
+     -webkit-transition: all 0.5s linear;
+        -moz-transition: all 0.5s linear;
+         -ms-transition: all 0.5s linear;
+          -o-transition: all 0.5s linear;
+             transition: all 0.5s linear;
+}
+
+.ReagentShowOptions {
+  display:block;
+   opacity: 1;
+  font-size:20px; 
+  background:lightgrey;
+  
+     height: 250px;
+     -webkit-transition: all 0.5s linear;
+        -moz-transition: all 0.5s linear;
+         -ms-transition: all 0.5s linear;
+          -o-transition: all 0.5s linear;
+             transition: all 0.5s linear;
+}   
+  
+
+.fill {
+  
+  height:300px;
+  width:50px;
+  background-color: Cyan;
+  position:relative;
+  top:150px;
+  left:0px;
+  
+  transition: all 2s;
   }
 
-  @keyframes fillAction {
-    0% {
-      transform: translate(0, 150px);
-    }
-    100% {
-      transform: translate(0, -5px);
-    }
+  
+  
+  
+ .precipitate {
+   height:300px;
+  width:50px;
+  background: black;
+ transition: background-color 2s ease;
+ 
+   transform: translate(0, 150px);
+   transition: all cubic-bezier(.2, .6, .8, .4) 1s;
   }
+ 
 
-  @keyframes waveAction {
-    0% {
-      transform: translate(-150px, 0);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
-  }
+  
+  
+
+
+ 
+  
+  
+  
+  
 </style>
+
+
+<div  id="addcationcontainer">
+    <div style="color:white;">
+      <button
+        style="font-size:20px;background-color:#1cadad;"
+        onclick="CationShowOptions();"
+      >
+        Add Cation
+      </button>
+         
+    </div>
+
+    <div class="CationHideOptions"  >
+      
+      <input type="radio" name="choice" value="Pb" id="Pb" />
+      <label for="Pb">Pb (lead)</label>
+      <br />
+      <input type="radio" name="choice" value="Cu" id="Cu" />
+      <label for="Cu">Cu (Copper)</label>
+      <br />
+      <input type="radio" name="choice" value="Bi" id="Bi" />
+      <label for="Bi">Bi (Bismuth)</label>
+      
+      <br />
+      <input type="radio" name="choice" value="Cd" id="Cd" />
+      <label for="Cd">Cd(Cadmium)</label>
+      <br />
+      <input type="radio" name="choice" value="Fe" id="Fe" />
+      <label for="Fe">Fe (Iron) </label>
+      <br />
+      <input type="radio" name="choice" value="Cr" id="Cr" />
+      <label for="Cr">Cr (Chromium) </label>
+      <br />
+       <input type="radio" name="choice" value="Al" id="Al" />
+      <label for="Al">Al (Aluminium) </label>
+      
+      <button onclick='cationselected();CationHideOptions();' style=" color:white; background-color:#1898a3;" > Done </button>
+    </div>
+</div>  
+
+ 
+
+
+
+
+
+
+<div id="result" style=" display:block ; position:absolute; left:55%; top:25%; "> 
+</div>
+  
 
 <div class="filtered" style=" display:none ; position:absolute; left:0px; ">
   <b> Filtrate</b>
@@ -64,7 +175,7 @@
 
 <div class="separated" style=" position:absolute; left:60%; top:40%;"><a href="https://1.bp.blogspot.com/-qyZvJ_bsYRE/YUtLlXTsCRI/AAAAAAAAAhM/VcSKFKAPLjkgK7v5xzOaZrlUy4k4r64LwCLcBGAsYHQ/s1280/petri-dish-149007_1280.png" style="display: none; padding: 1em 0; " class="filtered"><img  alt="" border="0" width="100" data-original-height="640" data-original-width="1280" src="https://1.bp.blogspot.com/-qyZvJ_bsYRE/YUtLlXTsCRI/AAAAAAAAAhM/VcSKFKAPLjkgK7v5xzOaZrlUy4k4r64LwCLcBGAsYHQ/s320/petri-dish-149007_1280.png"/></a></div>
 
-<div class="separator" style="position:absolute; left:60%; top:40%;"><a href="https://1.bp.blogspot.com/-3lPfrNEMUks/YUtfeAJxZYI/AAAAAAAAAhU/q8aqeHwYqqkUzOaVyePhColGEPUtIbmSwCLcBGAsYHQ/s835/toppng.com-powder-png-742x441.png" style="display: none; padding: 1em 0; text-align: center; " class="filtered"><img alt="" border="0" width="80" data-original-height="496" data-original-width="835" src="https://1.bp.blogspot.com/-3lPfrNEMUks/YUtfeAJxZYI/AAAAAAAAAhU/q8aqeHwYqqkUzOaVyePhColGEPUtIbmSwCLcBGAsYHQ/s200/toppng.com-powder-png-742x441.png"/></a></div>
+<div class="separator" style="position:absolute; left:62%; top:42%; display:none;" id="powder" ><a href="https://1.bp.blogspot.com/-3lPfrNEMUks/YUtfeAJxZYI/AAAAAAAAAhU/q8aqeHwYqqkUzOaVyePhColGEPUtIbmSwCLcBGAsYHQ/s835/toppng.com-powder-png-742x441.png" style=" padding: 1em 0; text-align: center; " ><img alt="" border="0" width="80" data-original-height="496" data-original-width="835" src="https://1.bp.blogspot.com/-3lPfrNEMUks/YUtfeAJxZYI/AAAAAAAAAhU/q8aqeHwYqqkUzOaVyePhColGEPUtIbmSwCLcBGAsYHQ/s200/toppng.com-powder-png-742x441.png"/></a></div>
 
 <div
   style="display:none;
@@ -76,8 +187,12 @@
   class="filtered"
 ></div>
 
-<div id="banner">
-    <div
+
+<div id="testtube">
+  
+  
+  
+   <div
       id="cation"
       style=" display:none; background:white; width:20px; height:7px;
              position: absolute;
@@ -87,98 +202,74 @@
     >
       .
     </div>
-
-    <div class="fill">
-      <svg
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        x="0px"
-        y="0px"
-        width="300px"
-        height="300px"
-        viewBox="0 0 300 300"
-        enable-background="new 0 0 300 300"
-        xml:space="preserve"
-      >
-        <path
-          fill="#04ACFF"
-          id="waveShape"
-          d="M300,300V2.5c0,0-0.6-0.1-1.1-0.1c0,0-25.5-2.3-40.5-2.4c-15,0-40.6,2.4-40.6,2.4
-    c-12.3,1.1-30.3,1.8-31.9,1.9c-2-0.1-19.7-0.8-32-1.9c0,0-25.8-2.3-40.8-2.4c-15,0-40.8,2.4-40.8,2.4c-12.3,1.1-30.4,1.8-32,1.9
-    c-2-0.1-20-0.8-32.2-1.9c0,0-3.1-0.3-8.1-0.7V300H300z"
-        />
-      </svg>
-    </div>
-</div>
-
-<div  id="addcationcontainer">
-    <div style="position:absolute; left:45%; top:45%;  color:white;">
-      <button
-        style="font-size:20px;background-color:#1cadad;"
-        onclick="addcation()"
-      >
-        Add Cation
-      </button>
-    </div>
-
-    <div id="cationselection" style="position:absolute; display:none;  top:55%; left:45%; font-size:20px; background:lightgrey; ">
-      
-      <input type="radio" name="choice" value="cation2" id="cation2" />
-      <label for="cation2">Pb (lead)</label>
-      <br />
-      <input type="radio" name="choice" value="cation1" id="cation1" />
-      <label for="cation1">Cu (Copper)</label>
-      <br />
-      <input type="radio" name="choice" value="cation2" id="cation2" />
-      <label for="cation2">Bi (Bismuth)</label>
-      
-      <br />
-      <input type="radio" name="choice" value="cation1" id="cation1" />
-      <label for="cation1">Cd(Cadmium)</label>
-      <br />
-      <input type="radio" name="choice" value="cation2" id="cation2" />
-      <label for="cation2">Fe (Iron) </label>
-      <br />
-      <input type="radio" name="choice" value="cation2" id="cation2" />
-      <label for="cation2">Cr (Chromium) </label>
-      <br />
-       <input type="radio" name="choice" value="cation2" id="cation2" />
-      <label for="cation2">Al (Aluminium) </label>
-      
-      <button onclick='cationselected()' style="float:right; color:white; background-color:#1898a3;" > Done </button>
-    </div>
-</div>
-
-  <!-- add id on button to make DOM interaction easier -->
-  <div id="add">
-    <br /><button id="add-water-btn">Add water</button>
+  
+  
+  
+  
+  <div class="fill">
     
-   <button onclick='addreagent()' id="addreagent">Reagent</button>
+  </div>
+</div>
+
+
+   
+ 
+
+
+
+
+  
+
+
+
+  
+
+<div id="reagentselection" class="ReagentHideOptions" style="   font-size:20px; background:lightgrey; " >
+      <input type="radio" name="reagent" value="dil.HCl" id="dil.HCl" />
+      <label for="dil.HCl">dil.HCl</label>
+     <br />
+      <input type="radio" name="reagent" value="con.HCl" id="con.HCl" />
+      <label for="con.HCl">con.HCl</label>
+     <br/>
+      <input type="radio" name="reagent" value="H2S" id="H2S" />
+      <label for="H2S">H2S</label>
+  <br />
+      <input type="radio" name="reagent" value="NaOH" id="NaOH" />
+      <label for="NaOH">NaOH</label>
+      
+     <br />
+      <input type="radio" name="reagent" value="NH4Cl" id="NH4Cl" />
+      <label for="NH4Cl">NH4Cl</label>
+     <br />
+      <input type="radio" name="reagent" value="NH4OH" id="NH4OH" />
+      <label for="NH4OH">NH4OH</label>
+     <br />
+      <input type="radio" name="reagent" value="NH4CO3" id="NH4CO3" />
+      <label for="NH4CO3">(NH4)2CO3 </label>
+     <br />
+       <input type="radio" name="reagent" value="Nessler" id="Nessler" />
+       <label for="Nessler"> Nessler′s reagent </label>
+     <br />
+       <input type="radio" name="reagent" value="Potassiumchromate" id="Potassiumchromate" />
+       <label for=" Potassiumchromate">Potassium chromate</label>
+     <br />
+       <input type="radio" name="reagent" value="potassiumiodide" id="potassiumiodide" />
+       <label for=" potassiumiodide">potassium iodide</label>
+  
+  
+  
+
+  
+  <button id='add-reagent-btn' onclick='Reagentselected();playfillsound();' style="float:right; color:white; background-color:#1898a3;" > Done </button>
+    
+</div>  
+
+<div id="add">
+    <br /><button id="add-water-btn" onclick='water();playfillsound();' >Add water</button>
+    
+   <button onclick='ReagentShowOptions();' id="addreagent" >Reagent</button>
   </div>
 
-<div id="reagentselection" style="position:absolute; display:none;  top:55%; left:45%; font-size:20px; background:lightgrey; " >
-  <input type="radio" name="choice" value="cation1" id="cation1" />
-      <label for="cation1">dil.HCl</label>
-      <br />
-      <input type="radio" name="choice" value="cation2" id="cation2" />
-      <label for="cation2">H2S</label>
-      
-      <br />
-      <input type="radio" name="choice" value="cation1" id="cation1" />
-      <label for="cation1">NH4Cl</label>
-      <br />
-      <input type="radio" name="choice" value="cation2" id="cation2" />
-      <label for="cation2">NH4OH</label>
-      <br />
-      <input type="radio" name="choice" value="cation2" id="cation2" />
-      <label for="cation2">(NH4)2CO3 </label>
-      <br />
-       <input type="radio" name="choice" value="cation2" id="cation2" />
-      <label for="cation2">Al (Aluminium) </label>
-  <button id='add-reagent-btn' onclick='reagentselected()' style="float:right; color:white; background-color:#1898a3;" > Done </button>
-    
-</div>
 
 
 <br>
@@ -186,97 +277,317 @@
 <div id="functions">
 <button onclick="shake()">Shake (Mix)</button>
   
-<button onclick="filtered()">Filter</button>
+<button onclick="filtered();drainwater();setTimeout(pause, 700);">Filter</button>
+  
+<button onclick='concentrate()'>concentrate</button>
+  
+<button onclick="Heat()">Heat</button>
+  
+<button onclick="Cool()">Cool</button>  
+ 
+  
+<button onclick="Boil()">Boil</button>  
+  
 </div>
+
+
+
+
 
   <script>
     
-    function addreagent() 
-    {
-    const reagentselection=document.getElementById("reagentselection");
-        if (reagentselection.style.display="none"){reagentselection.style.display="block"}
     
-    }
+    var added_water =false;
+    var shaken      =false;
+    var concentrated =false;
+    var Heated      =false;               
+    var Cooled        =false;
+    var Boiled      =false;
     
-   function reagentselected()
+    var fillPortion = -20 ; 
+    
+    
+     var addedNH4Cl = false;
+     var addedNH4OH = false;
+    
+ 
+function water () {
+  
+  
+  var filled = document.querySelector('.fill')
+              
+  var transform = 'translate(0,' + fillPortion +'px)';
+  
+filled.style.WebkitTransform = transform;
+filled.style.backgroundColor = 'cyan';  
+  
+  fillPortion -=20;
+  
+ added_water =true;
+  
+}
+  
+  
+
+  
+
+
+  
+ 
+    
+    
+    
+   function Reagentselected()
     {
-    const reagentselection=document.getElementById("reagentselection");
-        if (reagentselection.style.display="block"){reagentselection.style.display="none"}
+  
+      
+    /*Fill testtube*/  
+     var filled = document.querySelector('.fill') ;
+     var transform = 'translate(0,' + fillPortion +'px)';
+     filled.style.WebkitTransform = transform;
+     fillPortion -=20; 
+      
+    /*Record which reagents are selected */ 
+      
+    if ( document.getElementById("NH4Cl").checked)
+    {
+    addedNH4Cl = true;
     }
+      
+    if  ( document.getElementById("NH4OH").checked)
+    {
+    addedNH4OH = true;
+    }
+      
+   /*Hide the division*/
+  var x = document.getElementsByClassName("ReagentShowOptions");
+
+   x[0].className="ReagentHideOptions";    
+      
+  }  
+      
+      
+    
     
     
 
-      function addcation()
-      {
-        
-       
       
-    const cationselection=document.getElementById("cationselection");
-        if (cationselection.style.display="none"){cationselection.style.display="block"}
+    
+    
+  function CationShowOptions() 
+    {
+  
+
+   var x=document.getElementsByClassName("CationHideOptions");
       
-      }
+      x[0].className="CationShowOptions";
+   }
+    
+    
+ function CationHideOptions() 
+    {
+    var x = document.getElementsByClassName("CationShowOptions");
+
+x[0].className="CationHideOptions";
+      
+   }  
+    
+    
+    
+    
+ function ReagentShowOptions() 
+    {
+      
+    var x = document.getElementsByClassName("ReagentHideOptions");
+
+    x[0].className="ReagentShowOptions";
+   
+    }
+    
+    
+    
+ 
+  
+    
+    
+    
+    
     
     function cationselected()
     {
     const cation=document.getElementById("cation");
         if (cation.style.display="none"){cation.style.display="block"}
       
-     const addcationcontainer=document.getElementById("addcationcontainer");
-        if (addcationcontainer.style.display="block"){addcationcontainer.style.display="none"}
-      
     }
     
 
        function shake()
       {
+        shaken=true;
        const cation=document.getElementById("cation");
         if (cation.style.display="block"){cation.style.display="none"}
       }
 
-       function filtered()
+   function filtered()
       {
 
-      var filtered = document.getElementsByClassName("filtered");
-    var i;
-    for (i = 0; i <filtered.length; i++) {
-      filtered[i].style.display = "block";
-    }
-      }
-
-
-      var fillPortion = 0 // the first state is 0%
-      document.getElementById('add-water-btn').addEventListener('click', () => {
-        let height = document.getElementById('banner').clientHeight // get container height
-        // prevent added more than 100%
-        if (fillPortion < 100) {
-          fillPortion += 10 // added 25% on every click
-          // since the translate Y is backward (full is 0px, empty is 150px), then the fill portion must be backward to (the first click is 75%, second click is 50%, last click is 0%)
-          document.querySelector('#banner .fill').style.transform = 'translate(0, ' + ((100 - fillPortion) / 100) * height + 'px)'
-        } else {
-          // add code if already full
+   
+        
+        
+  /* Pb precipitation - white */  
+   if(added_water===true 
+      && document.getElementById("dil.HCl").checked 
+      && shaken===true 
+      && document.getElementById("Pb").checked)
+     
+       {var filled = document.querySelector('.fill')
+              
+        var transform = 'translate(0,' + -20 +'px) ';
+  
+         filled.style.WebkitTransform = transform;
+         filled.style.backgroundColor = 'white';   
+  
+          fillPortion = -40;
         }
-      })
+        
+  
+ /* Cu precipitation - Black */         
+   if(Boiled===true && document.getElementById("H2S").checked && document.getElementById("Cu").checked)
+      {
+      var filled = document.querySelector('.fill')
+              
+  var transform = 'translate(0,' + -20 +'px)';
+  
+filled.style.WebkitTransform = transform;
+
+   filled.style.backgroundColor = 'Black';
+  
+  fillPortion = -40;
+       
+      }   
+        
+ /* Bi precipitation - Brown */         
+   if(Boiled===true && document.getElementById("H2S").checked && document.getElementById("Bi").checked)
+      {
+      var filled = document.querySelector('.fill')
+              
+  var transform = 'translate(0,' + -20 +'px)';
+  
+filled.style.WebkitTransform = transform;
+
+   filled.style.backgroundColor = 'Brown';
+  
+  fillPortion = -40;
+       
+      }    
+        
+  /* Cd precipitation - Yellow */         
+   if(Boiled===true && document.getElementById("H2S").checked && document.getElementById("Cd").checked)
+      {
+      var filled = document.querySelector('.fill')
+              
+  var transform = 'translate(0,' + -20 +'px)';
+  
+filled.style.WebkitTransform = transform;
+
+   filled.style.backgroundColor = 'yellow';
+  
+  fillPortion = -40;
+       
+      }     
+        
+   /* Fe or Cr precipitation - Green */         
+   if(   Boiled       ===true
+      && Concentrated ===true
+      && addedNH4Cl   ===true 
+      && addedNH4OH   ===true
+      && shaken       ===true
+      && document.getElementById("Fe").checked )
+      
+      {
+      var filled = document.querySelector('.fill')
+              
+  var transform = 'translate(0,' + -20 +'px)';
+  
+filled.style.WebkitTransform = transform;
+
+   filled.style.backgroundColor = 'green';
+  
+  fillPortion = -40;
+       
+      }     
+        
+        
+        
+        
+        
+      
+   
+ else  {   
+           var filled = document.querySelector('.fill')
+              
+  var transform = 'translate(0,' + -20 +'px)';
+  
+filled.style.WebkitTransform = transform;
+
+   
+  
+  fillPortion = -40;
+ 
+ }    
     
-    document.getElementById('add-reagent-btn').addEventListener('click', () => {
-        let height = document.getElementById('banner').clientHeight // get container height
-        // prevent added more than 100%
-        if (fillPortion < 100) {
-          fillPortion += 10 // added 25% on every click
-          // since the translate Y is backward (full is 0px, empty is 150px), then the fill portion must be backward to (the first click is 75%, second click is 50%, last click is 0%)
-          document.querySelector('#banner .fill').style.transform = 'translate(0, ' + ((100 - fillPortion) / 100) * height + 'px)'
-        } else {
-          // add code if already full
-        }
-      })
+ 
     
+  } 
+        
+        
+         
+         
+    function concentrate () 
+    {concentrated = true;}
+    
+    function Heat()  
+    {Heated=true; }
+    
+    function Cool()  
+    { Cooled=true; }
+    
+    function Boil()  
+    {Boiled=true; }
     
   </script>
-</div>
-
-<p>This project is opensource. The source code is available here.</p>
 
 
+<hr>
+<p>This project is opensource. The source code is available <a href="https://github.com/abhinavpb-249/abhinavpb-249.github.io" target="_blank">here</a>.</p>
+<hr>
+
+
+
+<br><br><br><br><br><br><br><br><br>
+<!--
 Credits:
 <br> petridish Image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=149007">OpenClipart-Vectors</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=149007">Pixabay</a>
 <br>
-Powder Image: <a title="Download powder png png images background@toppng.com" href="https://toppng.com/powder-png-PNG-free-PNG-Images_132630" target="_blank">Download powder png png images background@toppng.com</a>
+Powder Image: <a title="Download powder png png images background@toppng.com" href="https://toppng.com/powder-png-PNG-free-PNG-Images_132630" target="_blank">Download powder png png images background@toppng.com</a> --->
+
+ <!-- Audio-->
+
+<audio src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Emptying_syringe_in_water_slow.ogg" id="fillsound"></audio>
+   
+<audio src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Kitchen_sink_draining_water.ogg" id="drainsound"></audio>   
+   
+   <script>
+     function playfillsound(){
+       document.getElementById("fillsound").play();
+     }
+     
+     function drainwater(){
+       document.getElementById("drainsound").play();  
+     } 
+     
+     function pause(){
+       document.getElementById("drainsound").pause();
+     } 
+     
+   </script>
