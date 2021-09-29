@@ -575,16 +575,19 @@ Powder Image: <a title="Download powder png png images background@toppng.com" hr
 
 <audio src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Emptying_syringe_in_water_slow.ogg" id="fillsound"></audio>
    
-<audio src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Kitchen_sink_draining_water.ogg" id="drainsound"></audio>   
+<audio src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Kitchen_sink_draining_water.ogg#t=5,6" id="drainsound"></audio>   
    
    <script>
      function playfillsound(){
        document.getElementById("fillsound").play();
      }
      
-     function drainwater(){
-       document.getElementById("drainsound").play();  
-     } 
+    function drainwater(){
+    const $drain = document.getElementById("drainsound");
+
+    $drain.onpause = () => $drain.src = $drain.src;
+    $drain.play();
+}
      
      function pause(){
        document.getElementById("drainsound").pause();
