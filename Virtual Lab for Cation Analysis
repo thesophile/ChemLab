@@ -1,6 +1,19 @@
 <style>
 
-
+  
+  
+  .greyboxhidden{
+    
+  background:#F0F0F0;
+   border-radius :5px;
+   border: solid black 2px;
+   padding-left:5px;
+    padding-right:5px; 
+    text-align:center;
+  }
+  
+ 
+  
  /*The empty test tube */
   #testtube {
     border:solid red 2px;
@@ -16,7 +29,7 @@
  
   
 .CationHideOptions {
-  
+  display:none;
   opacity: 0;
   font-size:20px; 
   background:lightgrey;
@@ -31,6 +44,7 @@
 }
 
 .CationShowOptions {
+  display:block;
    opacity: 1;
   font-size:20px; 
   background:lightgrey;
@@ -100,20 +114,22 @@
  
 
   
+  
+
+
+ 
+  
+  
+  
+  
 </style>
-
-
 
 
 <div  id="addcationcontainer">
     <div style="color:white;">
-      <button
-        style="font-size:20px;background-color:#1cadad;"
-        onclick="CationShowOptions();"
-      >
+      <button style="font-size:20px;background-color:#1cadad;" onclick="CationShowOptions();">
         Add Cation
-      </button>
-         
+      </button>      
     </div>
 
     <div class="CationHideOptions"  >
@@ -139,69 +155,49 @@
       <br />
        <input type="radio" name="choice" value="Al" id="Al" />
       <label for="Al">Al (Aluminium) </label>
+      <br />
+       <input type="radio" name="choice" value="Zn" id="Zn" />
+      <label for="Zn">Zn (Zinc) </label>
+      <br />
+       <input type="radio" name="choice" value="Mn" id="Mn" />
+      <label for="Mn">Mn (Manganese) </label>
+      <br />
+      <input type="radio" name="choice" value="Ba" id="Ba" />
+      <label for="Ba">Ba (Barium) </label>
       
-      <button onclick='cationselected();CationHideOptions();' style=" color:white; background-color:#1898a3;" > Done </button>
+      <button onclick='cationselected();CationHideOptions();' style=" color:white; background-color:#1898a3;" >
+        Done 
+      </button>
     </div>
 </div>  
 
- 
+<br><br> 
 
-<div id="result" style=" display:block ; position:absolute; left:55%; top:25%; "> 
+
+
+
+
+
+<div  id="Observation" style="position:absolute; left:45%; top:15%;" class="greyboxhidden"> Observations will be shown here
 </div>
   
 
-<div class="filtered" style=" display:none ; position:absolute; left:0px; ">
-  <b> Filtrate</b>
-</div>
-<div class="filtered" style=" display:none; position:absolute; left:60%;">
-  <b>Residue</b>
-  
-</div>
 
 
-<br /><br />
 
-
-<div class="separated" style=" position:absolute; left:60%; top:40%;"><a href="https://1.bp.blogspot.com/-qyZvJ_bsYRE/YUtLlXTsCRI/AAAAAAAAAhM/VcSKFKAPLjkgK7v5xzOaZrlUy4k4r64LwCLcBGAsYHQ/s1280/petri-dish-149007_1280.png" style="display: none; padding: 1em 0; " class="filtered"><img  alt="" border="0" width="100" data-original-height="640" data-original-width="1280" src="https://1.bp.blogspot.com/-qyZvJ_bsYRE/YUtLlXTsCRI/AAAAAAAAAhM/VcSKFKAPLjkgK7v5xzOaZrlUy4k4r64LwCLcBGAsYHQ/s320/petri-dish-149007_1280.png"/></a></div>
-
-<div class="separator" style="position:absolute; left:62%; top:42%; display:none;" id="powder" ><a href="https://1.bp.blogspot.com/-3lPfrNEMUks/YUtfeAJxZYI/AAAAAAAAAhU/q8aqeHwYqqkUzOaVyePhColGEPUtIbmSwCLcBGAsYHQ/s835/toppng.com-powder-png-742x441.png" style=" padding: 1em 0; text-align: center; " ><img alt="" border="0" width="80" data-original-height="496" data-original-width="835" src="https://1.bp.blogspot.com/-3lPfrNEMUks/YUtfeAJxZYI/AAAAAAAAAhU/q8aqeHwYqqkUzOaVyePhColGEPUtIbmSwCLcBGAsYHQ/s200/toppng.com-powder-png-742x441.png"/></a></div>
-
-<div
-  style="display:none;
-               border-left: 3px solid black;
-            height: 150px;
-            position:absolute;
-            left: 50%
-              "
-  class="filtered"
-></div>
 
 
 <div id="testtube">
   
+   <div class="fill">
+   </div>
   
-  
-   <div
-      id="cation"
-      style=" display:none; background:white; width:20px; height:7px;
-             position: absolute;
-             bottom: 0;  text-align:center;
-  left:25%;     z-index:1;
-            "
-    >
-      .
-    </div>
-  
-  
-  
-  
-  <div class="fill">
-    
-  </div>
+   <div id="cation" style=" display:none; background:white; width:20px; height:7px; position: absolute; bottom: 0;  
+             text-align:center; left:25%;     z-index:1; " >
+   </div>
+   
 </div>
 
-
- 
 
   
 
@@ -245,42 +241,41 @@
     
 </div>  
 
-<div id="add">
-    <br /><button id="add-water-btn" onclick='water();playfillsound();' >Add water</button>
+<br />
+<div id="add" style="background:#1f8a91; padding:5px; ">
+    <button id="add-water-btn" onclick='water();playfillsound();' >Add water</button>
     
    <button onclick='ReagentShowOptions();' id="addreagent" >Reagent</button>
-  </div>
+</div>
 
 
 
 <br>
 
-<div id="functions">
-<button onclick="shake()">Shake (Mix)</button>
+<div id="functions" style="background:#1f8a91;  padding:5px;">
+  <button onclick="shake()">Shake (Mix)</button>
   
-<button onclick="filtered();drainwater();setTimeout(pause, 700);">Filter</button>
+  <button onclick="filtered();drainwater();setTimeout(pause, 700);">Filter</button>
   
-<button onclick='concentrate()'>concentrate</button>
+  <button onclick='Concentrate()'>Concentrate</button>
   
-<button onclick="Heat()">Heat</button>
+  <button onclick="Heat()">Heat</button>
   
-<button onclick="Cool()">Cool</button>  
- 
-  
-<button onclick="Boil()">Boil</button>  
-  
+  <button onclick="Cool()">Cool</button>  
+
+
+<p style="margin-bottom:-7px;"> </p>
+
+<button onclick='BoilSolution()'>Boil</button>
+
 </div>
-
-
-
-
 
   <script>
     
     
     var added_water =false;
     var shaken      =false;
-    var concentrated =false;
+    var Concentrated =false;
     var Heated      =false;               
     var Cooled        =false;
     var Boiled      =false;
@@ -290,7 +285,8 @@
     
      var addedNH4Cl = false;
      var addedNH4OH = false;
-    
+     var addedNH4CO3  =false;
+    var Grp3Separated = false;
  
 function water () {
   
@@ -309,7 +305,7 @@ filled.style.backgroundColor = 'cyan';
 }
   
   
- 
+
     
    function Reagentselected()
     {
@@ -332,6 +328,13 @@ filled.style.backgroundColor = 'cyan';
     {
     addedNH4OH = true;
     }
+    
+    if  ( document.getElementById("NH4CO3").checked)
+    {
+    addedNH4CO3 = true;
+    }  
+      
+    
       
    /*Hide the division*/
   var x = document.getElementsByClassName("ReagentShowOptions");
@@ -340,7 +343,11 @@ filled.style.backgroundColor = 'cyan';
       
   }  
       
-   
+      
+    
+    
+    
+
       
     
     
@@ -374,7 +381,13 @@ x[0].className="CationHideOptions";
    
     }
     
-   
+    
+    
+ 
+  
+    
+    
+    
     
     
     function cationselected()
@@ -391,76 +404,75 @@ x[0].className="CationHideOptions";
        const cation=document.getElementById("cation");
         if (cation.style.display="block"){cation.style.display="none"}
       }
+    
 
    function filtered()
-      {
+ {
+        
+        
+         var filled = document.querySelector('.fill') ;
+              
+           var transform = 'translate(0,' + -20 +'px)';
+  
+            filled.style.WebkitTransform = transform;
 
-   
+             fillPortion = -40;
+ 
         
-        
+       
   /* Pb precipitation - white */  
    if(added_water===true 
       && document.getElementById("dil.HCl").checked 
       && shaken===true 
       && document.getElementById("Pb").checked)
      
-       {var filled = document.querySelector('.fill')
-              
-        var transform = 'translate(0,' + -20 +'px) ';
-  
-         filled.style.WebkitTransform = transform;
-         filled.style.backgroundColor = 'white';   
-  
-          fillPortion = -40;
+       {
+          var filled = document.querySelector('.fill')
+          filled.style.backgroundColor = 'white'; 
+         
+         var box = document.getElementsByClassName("greyboxhidden");
+         
+         box[0].innerHTML = "White precipitate";
         }
         
   
  /* Cu precipitation - Black */         
-   if(Boiled===true && document.getElementById("H2S").checked && document.getElementById("Cu").checked)
+   if(Boiled===true 
+      && document.getElementById("H2S").checked 
+      && document.getElementById("Cu").checked)
       {
-      var filled = document.querySelector('.fill')
-              
-  var transform = 'translate(0,' + -20 +'px)';
-  
-filled.style.WebkitTransform = transform;
-
-   filled.style.backgroundColor = 'Black';
-  
-  fillPortion = -40;
-       
+         var filled = document.querySelector('.fill')
+         filled.style.backgroundColor = 'Black';
+        
+        var box = document.getElementsByClassName("greyboxhidden");
+         
+         box[0].innerHTML = "Black precipitate";
       }   
         
  /* Bi precipitation - Brown */         
    if(Boiled===true && document.getElementById("H2S").checked && document.getElementById("Bi").checked)
       {
-      var filled = document.querySelector('.fill')
-              
-  var transform = 'translate(0,' + -20 +'px)';
-  
-filled.style.WebkitTransform = transform;
-
-   filled.style.backgroundColor = 'Brown';
-  
-  fillPortion = -40;
-       
+         var filled = document.querySelector('.fill')  
+         filled.style.backgroundColor = 'Brown';
+        
+        var box = document.getElementsByClassName("greyboxhidden");
+         
+         box[0].innerHTML = "Brown precipitate";
       }    
         
   /* Cd precipitation - Yellow */         
    if(Boiled===true && document.getElementById("H2S").checked && document.getElementById("Cd").checked)
       {
-      var filled = document.querySelector('.fill')
-              
-  var transform = 'translate(0,' + -20 +'px)';
-  
-filled.style.WebkitTransform = transform;
-
-   filled.style.backgroundColor = 'yellow';
-  
-  fillPortion = -40;
-       
-      }     
+         var filled = document.querySelector('.fill')
+         filled.style.backgroundColor = 'yellow';
         
-   /* Fe or Cr precipitation - Green */         
+        var box = document.getElementsByClassName("greyboxhidden");
+         
+         box[0].innerHTML = "Yellow precipitate";
+      }     
+   
+   
+   /* Fe  precipitation - Green */         
    if(   Boiled       ===true
       && Concentrated ===true
       && addedNH4Cl   ===true 
@@ -468,56 +480,124 @@ filled.style.WebkitTransform = transform;
       && shaken       ===true
       && document.getElementById("Fe").checked )
       
-      {
-      var filled = document.querySelector('.fill')
-              
-  var transform = 'translate(0,' + -20 +'px)';
-  
-filled.style.WebkitTransform = transform;
-
-   filled.style.backgroundColor = 'green';
-  
-  fillPortion = -40;
-       
-      }     
+      { 
+        var filled = document.querySelector('.fill')
+        filled.style.backgroundColor = 'green';
         
-        
-        
-        
-        
+        var box = document.getElementsByClassName("greyboxhidden");
+         
+         box[0].innerHTML = "Green precipitate";
+      }  
+    /* Cr  precipitation - Green */ 
+   if(   Boiled       ===true
+      && Concentrated ===true
+      && addedNH4Cl   ===true 
+      && addedNH4OH   ===true
+      && shaken       ===true
+      && document.getElementById("Cr").checked )
       
+      { 
+        var filled = document.querySelector('.fill')
+        filled.style.backgroundColor = 'green';
+        
+        var box = document.getElementsByClassName("greyboxhidden");
+         
+         box[0].innerHTML = "Green precipitate";
+      }     
+    /* Al  precipitation - White gelatinous */ 
+   if(   Boiled       ===true
+      && Concentrated ===true
+      && addedNH4Cl   ===true 
+      && addedNH4OH   ===true
+      && shaken       ===true
+      && document.getElementById("Al").checked )
+      
+      { 
+        var filled = document.querySelector('.fill')
+        filled.style.backgroundColor = 'white';
+        
+        var box = document.getElementsByClassName("greyboxhidden");
+         
+         box[0].innerHTML = "White gelatinous precipitate";
+      } 
    
- else  {   
-           var filled = document.querySelector('.fill')
-              
-  var transform = 'translate(0,' + -20 +'px)';
-  
-filled.style.WebkitTransform = transform;
-
+   /*Mark if grp3separation has been done*/
    
-  
-  fillPortion = -40;
- 
- }    
+   if(   Boiled       ===true
+      && Concentrated ===true
+      && addedNH4Cl   ===true 
+      && addedNH4OH   ===true
+      && shaken       ===true
+       )
+      
+      { 
+        Grp3Separated =true;
+      } 
+   
+   /* Zn  precipitation - White */ 
+   if( document.getElementById("Zn").checked 
+       && Grp3Separated ===true
+       && document.getElementById("H2S").checked  
+      
+       )
+      
+      { 
+        var filled = document.querySelector('.fill')
+        filled.style.backgroundColor = 'white';
+        
+        var box = document.getElementsByClassName("greyboxhidden");
+         
+         box[0].innerHTML = "White precipitate";
+      } 
+   /* Mn precipitation - Flesh colour */ 
+   if( document.getElementById("Mn").checked 
+       && Grp3Separated ===true
+       && document.getElementById("H2S").checked  
+      
+       )
+      
+      { 
+        var filled = document.querySelector('.fill')
+        filled.style.backgroundColor = '#D2A9A1';
+        
+        var box = document.getElementsByClassName("greyboxhidden");
+         
+         box[0].innerHTML = "Flesh colour precipitate";
+      } 
+   
+   /* Grp 5 - White */ 
+   if(  Boiled       ===true
+      && Concentrated ===true
+      && addedNH4Cl   ===true 
+      && addedNH4OH   ===true
+      && addedNH4CO3  ===true
+      && Heated       ===true
+      && Cooled       ===true
+      && document.getElementById("Ba").checked   
+      
+       )
+      
+      { 
+        var filled = document.querySelector('.fill')
+        filled.style.backgroundColor = 'white';
+        
+        var box = document.getElementsByClassName("greyboxhidden");
+         
+         box[0].innerHTML = "White precipitate";
+      } 
     
- 
-    
-  } 
+} 
         
         
          
          
-    function concentrate () 
-    {concentrated = true;}
+    function Concentrate()  {Concentrated = true;}
     
-    function Heat()  
-    {Heated=true; }
+    function Heat()  {Heated=true; }
     
-    function Cool()  
-    { Cooled=true; }
+    function Cool()   { Cooled=true; }
     
-    function Boil()  
-    {Boiled=true; }
+    function BoilSolution()    { Boiled=true; }
     
   </script>
 
@@ -529,6 +609,15 @@ filled.style.WebkitTransform = transform;
 
 
 <br><br><br><br><br><br><br><br><br>
+
+Based on 
+:
+
+<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="bscphysicsCU/15" data-width="100%"></script>
+
+If you can't access the pdf, use a VPN.
+
+
 <!--
 Credits:
 <br> petridish Image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=149007">OpenClipart-Vectors</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=149007">Pixabay</a>
