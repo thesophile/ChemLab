@@ -284,7 +284,7 @@
   
   <p style="margin-bottom:-7px;"> </p>
   
-  <button onclick='BoilSolution()'>Boil</button>
+  <button onclick='Boil();setTimeout(StopBoil,1500);'>Boil</button>
   
   </div>
   
@@ -678,7 +678,16 @@
           
            
            
-      function Concentrate()  {Concentrated = true;}
+      function Concentrate()  
+      {Concentrated = true;
+
+        /*decrease the water level*/      
+        var filled = document.querySelector('.fill') ;
+           var transform = 'translate(0,' + -20 +'px)';
+           filled.style.WebkitTransform = transform;
+           fillPortion = -40;
+    
+      }
       
       function Heat()  {
   
@@ -689,21 +698,32 @@
          
       }
   
-      function StopHeat()  {
-  
-   
-  
-  var x =document.getElementById("burner");
-  if(x.style.display="block"){x.style.display="none"}
-  
-  }
+      function StopHeat(){
+                var x =document.getElementById("burner");
+                if(x.style.display="block"){x.style.display="none"}
+            }
+
+
   
       
       function Cool()
          { Cooled=true;
       }
       
-      function BoilSolution()    { Boiled=true; }
+      function Boil() { 
+          Boiled=true;
+         
+          var x =document.getElementById("burner");
+          if(x.style.display="none"){x.style.display="block"}
+    
+    
+        }
+
+        function StopBoil()
+            {
+                var x =document.getElementById("burner");
+                if(x.style.display="block"){x.style.display="none"}
+            } 
       
     </script>
   
@@ -720,7 +740,7 @@
   <hr>
   <ul>
     <li> Intergroup separation almost completed:
-         <br>1.Have to code visual feedback for concentrate and Boil buttons.
+         <br>1.Have to code visual feedback for  Boil buttons.
          <br>2.Add Group 5 cations (Sr,Ca) to "Add cation button"
     </li>
     
@@ -773,4 +793,6 @@
        } 
        
      </script>
+  
+      
   
