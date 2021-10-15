@@ -11,7 +11,18 @@
       text-align:center;
     }
     
-   
+   button{
+   border-radius :5px;
+
+   }
+
+
+   .btnadd{background-color:rgb(100, 168, 121);
+           color:white;       
+  }
+   .btnfun {background-color:rgb(148, 73, 73);
+             color:white; 
+  }
     
    /*The empty test tube */
     #testtube {
@@ -24,7 +35,7 @@
       overflow: hidden;
       backface-visibility: hidden;
       position:relative;
-      left:10%;
+      left:60px;
       transition: all 2s;
     }
    
@@ -126,65 +137,91 @@
   </style>
   
   
-  <div  id="addcationcontainer">
-      <div style="color:white;">
-        <button style="font-size:20px;background-color:#1cadad;" onclick="CationShowOptions();">
+  <div id="addcationcontainer">
+      <div style="color: white;">
+        <button onclick="CationShowOptions();" style="background-color: #1cadad; color: white; font-size: 20px;">
           Add Cation
         </button>      
       </div>
   
-      <div class="CationHideOptions"  >
+      <div class="CationHideOptions">
         
-        <input type="radio" name="choice" value="Pb" id="Pb" />
-        <label for="Pb">Pb (lead)</label>
+        <input id="Pb" name="choice" type="radio" value="Pb" />
+        <label>Pb (lead)</label>
         <br />
-        <input type="radio" name="choice" value="Cu" id="Cu" />
-        <label for="Cu">Cu (Copper)</label>
+        <input id="Cu" name="choice" type="radio" value="Cu" />
+        <label>Cu (Copper)</label>
         <br />
-        <input type="radio" name="choice" value="Bi" id="Bi" />
-        <label for="Bi">Bi (Bismuth)</label>
+        <input id="Bi" name="choice" type="radio" value="Bi" />
+        <label>Bi (Bismuth)</label>
         
         <br />
-        <input type="radio" name="choice" value="Cd" id="Cd" />
-        <label for="Cd">Cd(Cadmium)</label>
+        <input id="Cd" name="choice" type="radio" value="Cd" />
+        <label>Cd(Cadmium)</label>
         <br />
-        <input type="radio" name="choice" value="Fe" id="Fe" />
-        <label for="Fe">Fe (Iron) </label>
+        <input id="Fe" name="choice" type="radio" value="Fe" />
+        <label>Fe (Iron) </label>
         <br />
-        <input type="radio" name="choice" value="Cr" id="Cr" />
-        <label for="Cr">Cr (Chromium) </label>
+        <input id="Cr" name="choice" type="radio" value="Cr" />
+        <label>Cr (Chromium) </label>
         <br />
-         <input type="radio" name="choice" value="Al" id="Al" />
-        <label for="Al">Al (Aluminium) </label>
+         <input id="Al" name="choice" type="radio" value="Al" />
+        <label>Al (Aluminium) </label>
         <br />
-         <input type="radio" name="choice" value="Zn" id="Zn" />
-        <label for="Zn">Zn (Zinc) </label>
+         <input id="Zn" name="choice" type="radio" value="Zn" />
+        <label>Zn (Zinc) </label>
         <br />
-         <input type="radio" name="choice" value="Mn" id="Mn" />
-        <label for="Mn">Mn (Manganese) </label>
+         <input id="Mn" name="choice" type="radio" value="Mn" />
+        <label>Mn (Manganese) </label>
         <br />
-        <input type="radio" name="choice" value="Ba" id="Ba" />
-        <label for="Ba">Ba (Barium) </label>
+        <input id="Ba" name="choice" type="radio" value="Ba" />
+        <label>Ba (Barium) </label>
         
-        <button onclick='cationselected();CationHideOptions();' style=" color:white; background-color:#1898a3;" >
+        <br /><button onclick="cationselected();CationHideOptions();" style="background-color: #1898a3; color: white;">
           Done 
         </button>
       </div>
   </div>  
   
-  <br><br> 
+  <br /><br /> 
+  
+<div id="dividebuttons" style="display: none;">
+  <button id="t1btn" onclick="TestTube1()" style="background-color: ghostwhite;">Test tube 1 </button> 
+  <button id="t2btn" onclick="TestTube2()" style="background-color: white;">Test tube 2 </button>
+</div>
+
+<div id="workbench" style="padding: 10px;"> 
   
   
+  <div class="greyboxhidden" id="Observation" style="left: 45%; position: absolute; top: 10%;"> 
+    Intergroup Separation
+   </div> 
   
-  
-  
-  
-  <div  id="Observation" style="position:absolute; left:45%; top:15%;" class="greyboxhidden"> 
-    Cation Analysis Simulation
-  </div>
+   <div style="left: 45%; position: absolute; top: 12%;">
     
+    <button onclick="ShowResult()" style="background-color: #1cadad; border-radius: 50%; color: white; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding: 5px 10px;">
+      <b>?</b></button>
+    
+
   
+
+  <p id="resulthidden" style="display: none;"> 
+  Result will be shown here 
+  </p></div> 
   
+
+  <script>
+    function ShowResult() {
+      var result =document.getElementById("resulthidden");
+
+      if (result.style.display==="none") 
+      {result.style.display = "block";}
+
+      else 
+      {result.style.display = "none";}
+    
+    }
+  </script>
   
   
   
@@ -194,99 +231,102 @@
      <div class="fill">
      </div>
     
-     <div id="cation" style=" display:none; background:white; width:20px; height:7px; position: absolute; bottom: 0;  
-               text-align:center; left:25%;     z-index:1; " >
+     <div id="cation" style="background: white; bottom: 0px; display: none; height: 7px; left: 25%; position: absolute; text-align: center; width: 20px; z-index: 1;">
      </div>
      
   </div>
   
-  <!--Bunsen Burner -->
+  <!--Bunsen Burner-->
       
-  <div class="separator" style=" display: none;" id="burner">
-       <img alt="" border="0" height="320" data-original-height="1269" data-original-width="635" src="https://1.bp.blogspot.com/-riCc4aVMGv0/YVfkbJp7mwI/AAAAAAAAAh0/ac1r-nIgZuEZHGJBLkdfpZ-pUXVI87bxACLcBGAsYHQ/s320/bunsen-burner-edited.png"/>
+  <div class="separator" id="burner" style="display: none; left: 10px; position: relative;">
+       <img alt="" border="0" data-original-height="1269" data-original-width="635" height="320" src="https://1.bp.blogspot.com/-riCc4aVMGv0/YVfkbJp7mwI/AAAAAAAAAh0/ac1r-nIgZuEZHGJBLkdfpZ-pUXVI87bxACLcBGAsYHQ/s320/bunsen-burner-edited.png" />
   </div>  
      
   <div class="separator" style="clear: both;">
       
   </div>
    
-   
+ </div>  
   
-  <div id="reagentselection" class="ReagentHideOptions" style="   font-size:20px; background:lightgrey; " >
-        <input type="radio" name="reagent" value="dil.HCl" id="dil.HCl" />
-        <label for="dil.HCl">dil.HCl</label>
+  <div class="ReagentHideOptions" id="reagentselection" style="background: lightgrey; font-size: 20px;">
+        <input id="dil.HCl" name="reagent" type="radio" value="dil.HCl" />
+        <label>dil.HCl</label>
        <br />
-        <input type="radio" name="reagent" value="con.HCl" id="con.HCl" />
-        <label for="con.HCl">con.HCl</label>
-       <br/>
-        <input type="radio" name="reagent" value="H2S" id="H2S" />
-        <label for="H2S">H2S</label>
+        <input id="con.HCl" name="reagent" type="radio" value="con.HCl" />
+        <label>con.HCl</label>
+       <br />
+        <input id="H2S" name="reagent" type="radio" value="H2S" />
+        <label>H2S</label>
     <br />
-        <input type="radio" name="reagent" value="NaOH" id="NaOH" />
-        <label for="NaOH">NaOH</label>
+        <input id="NaOH" name="reagent" type="radio" value="NaOH" />
+        <label>NaOH</label>
         
        <br />
-        <input type="radio" name="reagent" value="NH4Cl" id="NH4Cl" />
-        <label for="NH4Cl">NH4Cl</label>
+        <input id="NH4Cl" name="reagent" type="radio" value="NH4Cl" />
+        <label>NH4Cl</label>
        <br />
-        <input type="radio" name="reagent" value="NH4OH" id="NH4OH" />
-        <label for="NH4OH">NH4OH</label>
+        <input id="NH4OH" name="reagent" type="radio" value="NH4OH" />
+        <label>NH4OH</label>
        <br />
-        <input type="radio" name="reagent" value="NH4CO3" id="NH4CO3" />
-        <label for="NH4CO3">(NH4)2CO3 </label>
+        <input id="NH4CO3" name="reagent" type="radio" value="NH4CO3" />
+        <label>(NH4)2CO3 </label>
     
     <br />
-         <input type="radio" name="reagent" value="Acetic" id="Acetic" />
-         <label for="Acetic"> Acetic Acid </label>
+         <input id="Acetic" name="reagent" type="radio" value="Acetic" />
+         <label> Acetic Acid </label>
     
        <br />
-         <input type="radio" name="reagent" value="Nessler" id="Nessler" />
-         <label for="Nessler"> Nessler′s reagent </label>
+         <input id="Nessler" name="reagent" type="radio" value="Nessler" />
+         <label> Nessler′s reagent </label>
        <br />
-         <input type="radio" name="reagent" value="Chromate" id="Chromate" />
-         <label for="Chromate">Potassium chromate</label>
+         <input id="Chromate" name="reagent" type="radio" value="Chromate" />
+         <label>Potassium chromate</label>
        <br />
-         <input type="radio" name="reagent" value="potassiumiodide" id="potassiumiodide" />
-         <label for=" potassiumiodide">potassium iodide</label>
+         <input id="Iodide" name="reagent" type="radio" value="Iodide" />
+         <label>potassium iodide</label>
     
     
     
   
     
-    <button id='add-reagent-btn' onclick='Reagentselected();playfillsound();' style="float:right; color:white; background-color:#1898a3;" > Done </button>
+    <br /><button id="add-reagent-btn" onclick="Reagentselected();playfillsound();" style="background-color: #1898a3; color: white;"> Done </button>
       
   </div>  
   
   <br />
   
-  <hr>
-  <div id="add" >
-      <button id="add-water-btn" onclick='water();playfillsound();' >Add water</button>
+  <hr />
+  <div id="add">
+      <button class="btnadd" id="add-water-btn" onclick="water();playfillsound();">Add water</button>
       
-     <button onclick='ReagentShowOptions();' id="addreagent" >Reagent</button>
+     <button class="btnadd" id="addreagent" onclick="ReagentShowOptions();">Reagents</button>
   </div>
   
-  <hr>
+  <hr />
   
   
   
-  <div id="functions" >
-    <button onclick="shake();setTimeout(changeshake,1000);setTimeout(changeshake2,2000);">Shake (Mix)</button>
+  <div id="functions">
+    <button class="btnfun" onclick="shake();setTimeout(changeshake,1000);setTimeout(changeshake2,2000);  ">Shake (Mix)</button>
     
-    <button onclick="filtered();drainwater();setTimeout(pause, 700);">Filter</button>
+    <button class="btnfun" onclick="filtered();drainwater();setTimeout(pause, 700);">Filter</button>
     
-    <button onclick='Concentrate()'>Concentrate</button>
+    <button class="btnfun" onclick="Concentrate()">Concentrate</button>
     
-    <button onclick="Heat();setTimeout(StopHeat,1500);">Heat</button>
+    <button class="btnfun" onclick="Heat();setTimeout(StopHeat,1500);">Heat</button>
     
-    <button onclick="Cool()">Cool</button>  
+    <button class="btnfun" onclick="Cool()">Cool</button>  
   
   
-  <p style="margin-bottom:-7px;"> </p>
+  <p style="margin-bottom: -7px;"> </p>
   
-  <button onclick='Boil();setTimeout(StopBoil,1500);'>Boil</button>
+  <button class="btnfun" onclick="Boil();setTimeout(StopBoil,1500);">Boil</button>
   
   </div>
+
+  <hr />
+
+  <button onclick="Divide()">Divide to 2 portions</button>  
   
     <script>
       
@@ -366,15 +406,25 @@
       }  
         
      /*pouring pottassium chromate*/
-      if( addedPotChromate ===true )
+      if(document.getElementById("Chromate").checked)
          {
-            var filled = document.querySelector('.fill')
-            filled.style.backgroundColor = 'yellow';  
-            
+           var filled = document.querySelector('.fill')
            var box = document.getElementsByClassName("greyboxhidden");
-           box[0].innerHTML = "Pottassium chromate is yellow in colour<br> Filter to see Residue";
+
+           filled.style.backgroundColor = 'yellow'; 
+           box[0].innerHTML = "Yellow precipitate is formed.";
          
-         }  
+         } 
+         
+         if(document.getElementById("Iodide").checked)
+         {
+           var filled = document.querySelector('.fill')
+           var box = document.getElementsByClassName("greyboxhidden");
+
+           filled.style.backgroundColor = 'yellow'; 
+           box[0].innerHTML = "Yellow precipitate";
+         
+         }    
        
         
      /*Hide the division*/
@@ -437,6 +487,30 @@
           if (cation.style.display="none"){cation.style.display="block"}
         
       }
+
+      function TestTube1(){
+      var btn1=document.getElementById("t1btn")
+      var btn2=document.getElementById("t2btn")
+      btn1.style.backgroundColor="ghostwhite"; 
+      btn2.style.backgroundColor="white"; 
+
+      
+      }
+
+      function TestTube2(){
+      var btn1=document.getElementById("t1btn")
+      var btn2=document.getElementById("t2btn")
+      btn1.style.backgroundColor="white"; 
+      btn2.style.backgroundColor="ghostwhite"; 
+      
+      var filled = document.querySelector('.fill');
+      var transform = 'translate(0,' + -20 +'px)';
+      filled.style.WebkitTransform = transform;
+      filled.style.backgroundColor = 'cyan';  
+      fillPortion =-40;
+
+      }
+
       
       var rotation = 20 ;
   
@@ -494,10 +568,14 @@
          {
             var filled = document.querySelector('.fill')
             filled.style.backgroundColor = 'white'; 
+
+            var result = document.getElementById("resulthidden");
            
            var box = document.getElementsByClassName("greyboxhidden");
            
            box[0].innerHTML = "White precipitate";
+           result.innerHTML = "Group 1 present" 
+
           }
           
     
@@ -508,10 +586,14 @@
         {
            var filled = document.querySelector('.fill')
            filled.style.backgroundColor = 'Black';
+           
           
           var box = document.getElementsByClassName("greyboxhidden");
            
            box[0].innerHTML = "Black precipitate";
+
+           var result = document.getElementById("resulthidden");
+           result.innerHTML = "Residue : Group 2 present <br> Black - Copper" 
         }   
           
    /* Bi precipitation - Brown */         
@@ -523,6 +605,9 @@
           var box = document.getElementsByClassName("greyboxhidden");
            
            box[0].innerHTML = "Brown precipitate";
+
+           var result = document.getElementById("resulthidden");
+           result.innerHTML = "Residue : Group 2 present <br> Brown - Bismuth" 
         }    
           
     /* Cd precipitation - Yellow */         
@@ -534,6 +619,9 @@
           var box = document.getElementsByClassName("greyboxhidden");
            
            box[0].innerHTML = "Yellow precipitate";
+
+           var result = document.getElementById("resulthidden");
+           result.innerHTML = "Residue : Group 2 present <br> Yellow - Cadmium" 
         }     
      
      
@@ -552,6 +640,9 @@
           var box = document.getElementsByClassName("greyboxhidden");
            
            box[0].innerHTML = "Green precipitate";
+
+           var result = document.getElementById("resulthidden");
+           result.innerHTML = "Residue : Group 3 present <br> Green - Fe or Cr" 
         }  
       /* Cr  precipitation - Green */ 
      if(   Boiled       ===true
@@ -568,6 +659,9 @@
           var box = document.getElementsByClassName("greyboxhidden");
            
            box[0].innerHTML = "Green precipitate";
+
+           var result = document.getElementById("resulthidden");
+           result.innerHTML = "Residue : Group 3 present <br> Green - Fe or Cr" 
         }     
       /* Al  precipitation - White gelatinous */ 
      if(   Boiled       ===true
@@ -584,6 +678,9 @@
           var box = document.getElementsByClassName("greyboxhidden");
            
            box[0].innerHTML = "White gelatinous precipitate";
+
+           var result = document.getElementById("resulthidden");
+           result.innerHTML = "Residue : Group 3 present <br> White gelatinous - Al" 
         } 
      
      /*Mark if grp3separation has been done*/
@@ -613,6 +710,9 @@
           var box = document.getElementsByClassName("greyboxhidden");
            
            box[0].innerHTML = "White precipitate";
+
+           var result = document.getElementById("resulthidden");
+           result.innerHTML = "Residue : Group 4 present <br> White - Zn" 
         } 
      /* Mn precipitation - Flesh colour */ 
      if( document.getElementById("Mn").checked 
@@ -628,6 +728,9 @@
           var box = document.getElementsByClassName("greyboxhidden");
            
            box[0].innerHTML = "Flesh colour precipitate";
+
+           var result = document.getElementById("resulthidden");
+           result.innerHTML = "Residue : Group 4 present <br> Flesh colour - Mn" 
         } 
      
      /* Grp 5 - White */ 
@@ -649,6 +752,9 @@
           var box = document.getElementsByClassName("greyboxhidden");
            
            box[0].innerHTML = "White precipitate";
+
+           var result = document.getElementById("resulthidden");
+           result.innerHTML = "Residue : white - Group 5 present " 
         } 
      
      /*Group 1 analysis*/
@@ -725,56 +831,68 @@
                 if(x.style.display="block"){x.style.display="none"}
             } 
       
+      function Divide(){
+         var workbench =document.getElementById("workbench");
+         var dividebuttons=document.getElementById("dividebuttons");
+         
+         workbench.style.backgroundColor="ghostwhite";
+         if (dividebuttons.style.display="none"){dividebuttons.style.display="block"}
+
+      }
+
+
     </script>
   
   
-  <hr>
   
-  <br><br><br><br><br>
-  <hr>
+  
+  <br /><br /><br /><br /><br />
+  <hr />
   <p>This project is opensource. The source code is available <a href="https://github.com/abhinavpb-249/abhinavpb-249.github.io" target="_blank">here</a>.</p>
-  <hr>
+  <hr />
   
-  <br><br>
+  <br /><br />
   <b>Project Log</b>
-  <hr>
+  <hr />
   <ul>
     <li> Intergroup separation almost completed:
-         <br>1.Have to code visual feedback for  Boil buttons.
-         <br>2.Add Group 5 cations (Sr,Ca) to "Add cation button"
+         <br />1.Have to code visual feedback for  Boil buttons(With bubbles coming).
+         <br />2.Add Group 5 cations (Sr,Ca) to "Add cation button"
     </li>
     
-    <li>Have to do Group Analysis 
-       <br> 1.Now doing group 1 Analysis  
-    </li>
-    <li>Need Some Polishing
-      <br>1.Animations, Button colours, rounded buttons .etc
-      </li>
+    
   </ul>
   
   
   
   
-  <br><br><br><br>
+  <br /><br /><br /><br />
   
   <b>Based on:</b>
-  <hr>
+  <hr />
+
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/a/AVvXsEg4CoIRaVnEAKm7vh0baJI6nr0ERKwn2DpYAlZQUOW3LTcoa1g5qZF7OJtm-26qyoK1tf2bpX-2c-hWY-6Alrn9Klkqw-nJ5mTYQFi4idPJRNplqh9ONUvrWCDNHOIjg0YegfzfmII6VYI0jjB8YXquzn0OAk8ChQrkscF-LI4yYxaJxtrK0-wVRGbBnQ=s1872" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" height="320" data-original-height="1872" data-original-width="852" src="https://blogger.googleusercontent.com/img/a/AVvXsEg4CoIRaVnEAKm7vh0baJI6nr0ERKwn2DpYAlZQUOW3LTcoa1g5qZF7OJtm-26qyoK1tf2bpX-2c-hWY-6Alrn9Klkqw-nJ5mTYQFi4idPJRNplqh9ONUvrWCDNHOIjg0YegfzfmII6VYI0jjB8YXquzn0OAk8ChQrkscF-LI4yYxaJxtrK0-wVRGbBnQ=s320"/></a></div>
+
+<p>As pdf:</p>
+<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="bscphysicsCU/17" data-width="100%"></script>
+
+<p>Full Cation analysis:</p>
   
-  <script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="bscphysicsCU/15" data-width="100%"></script>
+  <script async="" data-telegram-post="bscphysicsCU/15" data-width="100%" src="https://telegram.org/js/telegram-widget.js?15"></script>
   
   If you can't access the pdf, use a VPN.
   
   
-  <br><br>
+  <br /><br />
   <b>Credits:</b>
-  <hr>
+  <hr />
   Image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=154235">OpenClipart-Vectors</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=154235">Pixabay</a>
   
-   <!-- Audio-->
+   <!--Audio-->
   
-  <audio src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Emptying_syringe_in_water_slow.ogg" id="fillsound"></audio>
+  <audio id="fillsound" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Emptying_syringe_in_water_slow.ogg"></audio>
      
-  <audio src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Kitchen_sink_draining_water.ogg#t=5,6" id="drainsound"></audio>   
+  <audio id="drainsound" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Kitchen_sink_draining_water.ogg#t=5,6"></audio>   
      
      <script>
        function playfillsound(){
@@ -793,6 +911,7 @@
        } 
        
      </script>
+  
   
       
   
