@@ -1,4 +1,34 @@
 <style>
+
+  .addCation{
+               background-color: #1cadad;
+               color: white; font-size: 20px;
+             }
+  
+  .done   {  
+               background-color: #1898a3; color: white;  
+          }
+  .showResult  {
+                 background-color: #1cadad; border-radius: 50%; color: white;
+                  padding-bottom: 5px; padding-left: 10px; padding-right: 10px;
+                   padding-top: 5px; padding: 5px 10px;     
+                }
+  
+  #add-reagent-btn  {
+                      background-color: #1898a3; color: white;
+                    }
+  #cation {
+             background: white; bottom: 0px; display: none; height: 7px;
+              left: 25%; position: absolute; text-align: center;
+               width: 20px; z-index: 1;
+          } 
+          
+  .aligned {
+            display: flex;
+            align-items: center;
+            margin:20px;
+            
+           }
   
   
     .greyboxhidden{
@@ -37,6 +67,7 @@
       position:relative;
       left:60px;
       transition: all 2s;
+      margin:10px;
     }
    
     
@@ -126,91 +157,268 @@
    
   
     
-    
-  
-  
-   
-    
-    
+ 
     
     
   </style>
   
+<div class="aligned">  
   
-  <div id="addcationcontainer">
-      <div style="color: white;">
-        <button onclick="CationShowOptions();" style="background-color: #1cadad; color: white; font-size: 20px;">
+<div> <!--Left side-->  
+   
+   <div id="addcationcontainer">
+        <button onclick="CationShowOptions();" class="addCation">
           Add Cation
-        </button>      
-      </div>
+        </button>             
+   </div>
   
-      <div class="CationHideOptions">
+   <div class="CationHideOptions">
         
         <input id="Pb" name="choice" type="radio" value="Pb" />
         <label>Pb (lead)</label>
-        <br />
+         <br />
         <input id="Cu" name="choice" type="radio" value="Cu" />
         <label>Cu (Copper)</label>
-        <br />
+         <br />
         <input id="Bi" name="choice" type="radio" value="Bi" />
-        <label>Bi (Bismuth)</label>
-        
-        <br />
+        <label>Bi (Bismuth)</label>  
+         <br />
         <input id="Cd" name="choice" type="radio" value="Cd" />
         <label>Cd(Cadmium)</label>
-        <br />
+         <br />
         <input id="Fe" name="choice" type="radio" value="Fe" />
         <label>Fe (Iron) </label>
-        <br />
+         <br />
         <input id="Cr" name="choice" type="radio" value="Cr" />
         <label>Cr (Chromium) </label>
-        <br />
-         <input id="Al" name="choice" type="radio" value="Al" />
+         <br />
+        <input id="Al" name="choice" type="radio" value="Al" />
         <label>Al (Aluminium) </label>
-        <br />
-         <input id="Zn" name="choice" type="radio" value="Zn" />
+         <br />
+        <input id="Zn" name="choice" type="radio" value="Zn" />
         <label>Zn (Zinc) </label>
-        <br />
-         <input id="Mn" name="choice" type="radio" value="Mn" />
+          <br />
+        <input id="Mn" name="choice" type="radio" value="Mn" />
         <label>Mn (Manganese) </label>
-        <br />
+         <br />
         <input id="Ba" name="choice" type="radio" value="Ba" />
         <label>Ba (Barium) </label>
+          <br />
         
-        <br /><button onclick="cationselected();CationHideOptions();" style="background-color: #1898a3; color: white;">
+        <button onclick="cationselected();CationHideOptions();" 
+         class="done" >
           Done 
         </button>
-      </div>
+    </div>
+  
+  
+    <div id="dividebuttons" style="display: none;">
+        <button id="t1btn" onclick="TestTube1()" 
+                 style="background-color: ghostwhite;">Test tube 1 
+         </button> 
+         <button id="t2btn" onclick="TestTube2()" 
+          style="background-color: white;">Test tube 2 
+         </button>
+    </div>
+
+
+  
+  
+  <div id="testtube">
+    
+     <div class="fill">
+     </div>
+    
+     <div id="cation" >
+     </div>
+     
+  </div>
+  
+   <!--Bunsen Burner-->
+      
+  <div  id="burner" style="display: none; ">
+       <img alt="" border="0" data-original-height="1269" data-original-width="635" 
+       height="320" 
+       src="https://1.bp.blogspot.com/-riCc4aVMGv0/YVfkbJp7mwI/AAAAAAAAAh0/ac1r-nIgZuEZHGJBLkdfpZ-pUXVI87bxACLcBGAsYHQ/s320/bunsen-burner-edited.png" />
   </div>  
   
-  <br /><br /> 
   
-<div id="dividebuttons" style="display: none;">
-  <button id="t1btn" onclick="TestTube1()" style="background-color: ghostwhite;">Test tube 1 </button> 
-  <button id="t2btn" onclick="TestTube2()" style="background-color: white;">Test tube 2 </button>
-</div>
+  
+   <div id="workbench" class="aligned" 
+   style="background-color:lightgrey; padding: 10px;"> 
+  
+  
+         <div class="greyboxhidden" id="Observation"> 
+           Intergroup Separation
+         </div> 
+  
+         <div >
+            <button onclick="ShowResult()" class="showResult">
+               <b>?</b>
+            </button>       
+         </div>
+         
+         <p id="resulthidden" style="display: none;"> 
+             Result will be shown here  </p>            
+   </div>  
+   
+  
+ 
+     
+  
+   
 
-<div id="workbench" style="padding: 10px;"> 
   
-  
-  <div class="greyboxhidden" id="Observation" style="left: 45%; position: absolute; top: 10%;"> 
-    Intergroup Separation
-   </div> 
-  
-   <div style="left: 45%; position: absolute; top: 12%;">
+  <div class="ReagentHideOptions" id="reagentselection" style="background: lightgrey; font-size: 20px;">
+        <input id="dil.HCl" name="reagent" type="radio" value="dil.HCl" />
+        <label>dil.HCl</label>
+                      <br />
+        <input id="con.HCl" name="reagent" type="radio" value="con.HCl" />
+        <label>con.HCl</label>
+                       <br />
+        <input id="H2S" name="reagent" type="radio" value="H2S" />
+        <label>H2S</label>
+                       <br />
+        <input id="NaOH" name="reagent" type="radio" value="NaOH" />
+        <label>NaOH</label>
+        
+                        <br />
+        <input id="NH4Cl" name="reagent" type="radio" value="NH4Cl" />
+        <label>NH4Cl</label>
+                          <br />
+        <input id="NH4OH" name="reagent" type="radio" value="NH4OH" />
+        <label>NH4OH</label>
+                          <br />
+        <input id="NH4CO3" name="reagent" type="radio" value="NH4CO3" />
+        <label>(NH4)2CO3 </label>
     
-    <button onclick="ShowResult()" style="background-color: #1cadad; border-radius: 50%; color: white; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding: 5px 10px;">
-      <b>?</b></button>
+                         <br />
+         <input id="Acetic" name="reagent" type="radio" value="Acetic" />
+         <label> Acetic Acid </label>
+                             <br />
+         <input id="Nessler" name="reagent" type="radio" value="Nessler" />
+         <label> Nessler′s reagent </label>
+                           <br />
+         <input id="Chromate" name="reagent" type="radio" value="Chromate" />
+         <label>Potassium chromate</label>
+                           <br />
+         <input id="Iodide" name="reagent" type="radio" value="Iodide" />
+         <label>potassium iodide</label>
+       <br />
     
-
+     <button id="add-reagent-btn" onclick="Reagentselected();playfillsound();">    
+            Done 
+     </button>
+      
+  </div> 
+  
+  
+  
+  
+  
+</div> <!--Left side-->   
+  
+  
+  
+   
+  
   
 
-  <p id="resulthidden" style="display: none;"> 
-  Result will be shown here 
-  </p></div> 
+ 
+<div><!--Right side-->
+ 
+   <div id="add">
+       <button class="btnadd" id="add-water-btn" 
+       onclick="water();playfillsound();">Add water</button>
+      
+       <button class="btnadd" id="addreagent" 
+       onclick="ReagentShowOptions();">Reagents</button>
+   </div>
+  
+   <hr />
+  
+    <div id="functions">
+    
+        <button class="btnfun" 
+        onclick="shake();setTimeout(changeshake,1000);setTimeout(changeshake2,2000);">
+        Shake (Mix)
+        </button>
+    
+         <button class="btnfun" 
+         onclick="filtered();drainwater();setTimeout(pause, 700);">
+         Filter
+         </button>
+    
+         <button class="btnfun" onclick="Concentrate()">Concentrate
+         </button>
+    
+          <button class="btnfun" onclick="Heat();setTimeout(StopHeat,1500);">Heat
+          </button>
+    
+         <button class="btnfun" onclick="Cool()">Cool</button>  
+  
+  
+          <p style="margin-bottom: -7px;"> </p>
+  
+           <button class="btnfun" onclick="Boil();setTimeout(StopBoil,1500);">Boil
+           </button>
+  
+   </div>
+
+  <hr />
+
+            <button onclick="Divide()">Divide to 2 portions</button>
+  
+</div> <!--Right side-->  
+
+</div> <!--aligned-->
+
+
+
+  <hr />
+  <p>This project is opensource. The source code is available <a href="https://github.com/abhinavpb-249/abhinavpb-249.github.io" target="_blank">here</a>.</p>
+  <hr />
+  
+  <br /><br />
+  <b>Project Log</b>
+  <hr />
+  <ul>
+    <li> Intergroup separation almost completed:
+         <br />1.Have to code visual feedback for  Boil buttons(With bubbles coming).
+         <br />2.Add Group 5 cations (Sr,Ca) to "Add cation button"
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  
+  <br /><br /><br /><br />
+  
+  <b>Based on:</b>
+  <hr />
+
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/a/AVvXsEg4CoIRaVnEAKm7vh0baJI6nr0ERKwn2DpYAlZQUOW3LTcoa1g5qZF7OJtm-26qyoK1tf2bpX-2c-hWY-6Alrn9Klkqw-nJ5mTYQFi4idPJRNplqh9ONUvrWCDNHOIjg0YegfzfmII6VYI0jjB8YXquzn0OAk8ChQrkscF-LI4yYxaJxtrK0-wVRGbBnQ=s1872" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" height="320" data-original-height="1872" data-original-width="852" src="https://blogger.googleusercontent.com/img/a/AVvXsEg4CoIRaVnEAKm7vh0baJI6nr0ERKwn2DpYAlZQUOW3LTcoa1g5qZF7OJtm-26qyoK1tf2bpX-2c-hWY-6Alrn9Klkqw-nJ5mTYQFi4idPJRNplqh9ONUvrWCDNHOIjg0YegfzfmII6VYI0jjB8YXquzn0OAk8ChQrkscF-LI4yYxaJxtrK0-wVRGbBnQ=s320"/></a></div>
+
+<p>As pdf:</p>
+<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="bscphysicsCU/17" data-width="100%"></script>
+
+<p>Full Cation analysis:</p>
+  
+  <script async="" data-telegram-post="bscphysicsCU/15" data-width="100%" src="https://telegram.org/js/telegram-widget.js?15"></script>
+  
+  If you can't access the pdf, use a VPN.
+  
+  
+  <br /><br />
+  <b>Credits:</b>
+  <hr />
+  Image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=154235">OpenClipart-Vectors</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=154235">Pixabay</a>
   
 
-  <script>
+
+<script>
     function ShowResult() {
       var result =document.getElementById("resulthidden");
 
@@ -221,112 +429,7 @@
       {result.style.display = "none";}
     
     }
-  </script>
-  
-  
-  
-  
-  <div id="testtube">
-    
-     <div class="fill">
-     </div>
-    
-     <div id="cation" style="background: white; bottom: 0px; display: none; height: 7px; left: 25%; position: absolute; text-align: center; width: 20px; z-index: 1;">
-     </div>
-     
-  </div>
-  
-  <!--Bunsen Burner-->
-      
-  <div class="separator" id="burner" style="display: none; left: 10px; position: relative;">
-       <img alt="" border="0" data-original-height="1269" data-original-width="635" height="320" src="https://1.bp.blogspot.com/-riCc4aVMGv0/YVfkbJp7mwI/AAAAAAAAAh0/ac1r-nIgZuEZHGJBLkdfpZ-pUXVI87bxACLcBGAsYHQ/s320/bunsen-burner-edited.png" />
-  </div>  
-     
-  <div class="separator" style="clear: both;">
-      
-  </div>
-   
- </div>  
-  
-  <div class="ReagentHideOptions" id="reagentselection" style="background: lightgrey; font-size: 20px;">
-        <input id="dil.HCl" name="reagent" type="radio" value="dil.HCl" />
-        <label>dil.HCl</label>
-       <br />
-        <input id="con.HCl" name="reagent" type="radio" value="con.HCl" />
-        <label>con.HCl</label>
-       <br />
-        <input id="H2S" name="reagent" type="radio" value="H2S" />
-        <label>H2S</label>
-    <br />
-        <input id="NaOH" name="reagent" type="radio" value="NaOH" />
-        <label>NaOH</label>
-        
-       <br />
-        <input id="NH4Cl" name="reagent" type="radio" value="NH4Cl" />
-        <label>NH4Cl</label>
-       <br />
-        <input id="NH4OH" name="reagent" type="radio" value="NH4OH" />
-        <label>NH4OH</label>
-       <br />
-        <input id="NH4CO3" name="reagent" type="radio" value="NH4CO3" />
-        <label>(NH4)2CO3 </label>
-    
-    <br />
-         <input id="Acetic" name="reagent" type="radio" value="Acetic" />
-         <label> Acetic Acid </label>
-    
-       <br />
-         <input id="Nessler" name="reagent" type="radio" value="Nessler" />
-         <label> Nessler′s reagent </label>
-       <br />
-         <input id="Chromate" name="reagent" type="radio" value="Chromate" />
-         <label>Potassium chromate</label>
-       <br />
-         <input id="Iodide" name="reagent" type="radio" value="Iodide" />
-         <label>potassium iodide</label>
-    
-    
-    
-  
-    
-    <br /><button id="add-reagent-btn" onclick="Reagentselected();playfillsound();" style="background-color: #1898a3; color: white;"> Done </button>
-      
-  </div>  
-  
-  <br />
-  
-  <hr />
-  <div id="add">
-      <button class="btnadd" id="add-water-btn" onclick="water();playfillsound();">Add water</button>
-      
-     <button class="btnadd" id="addreagent" onclick="ReagentShowOptions();">Reagents</button>
-  </div>
-  
-  <hr />
-  
-  
-  
-  <div id="functions">
-    <button class="btnfun" onclick="shake();setTimeout(changeshake,1000);setTimeout(changeshake2,2000);  ">Shake (Mix)</button>
-    
-    <button class="btnfun" onclick="filtered();drainwater();setTimeout(pause, 700);">Filter</button>
-    
-    <button class="btnfun" onclick="Concentrate()">Concentrate</button>
-    
-    <button class="btnfun" onclick="Heat();setTimeout(StopHeat,1500);">Heat</button>
-    
-    <button class="btnfun" onclick="Cool()">Cool</button>  
-  
-  
-  <p style="margin-bottom: -7px;"> </p>
-  
-  <button class="btnfun" onclick="Boil();setTimeout(StopBoil,1500);">Boil</button>
-  
-  </div>
-
-  <hr />
-
-  <button onclick="Divide()">Divide to 2 portions</button>  
+  </script>  
   
     <script>
       
@@ -434,12 +537,7 @@
         
     }  
         
-        
-      
-      
-      
-  
-        
+         
       
       
     function CationShowOptions() 
@@ -472,13 +570,7 @@
      
       }
       
-      
-      
-   
-    
-      
-      
-      
+ 
       
       
       function cationselected()
@@ -846,47 +938,11 @@
   
   
   
-  <br /><br /><br /><br /><br />
-  <hr />
-  <p>This project is opensource. The source code is available <a href="https://github.com/abhinavpb-249/abhinavpb-249.github.io" target="_blank">here</a>.</p>
-  <hr />
   
-  <br /><br />
-  <b>Project Log</b>
-  <hr />
-  <ul>
-    <li> Intergroup separation almost completed:
-         <br />1.Have to code visual feedback for  Boil buttons(With bubbles coming).
-         <br />2.Add Group 5 cations (Sr,Ca) to "Add cation button"
-    </li>
-    
-    
-  </ul>
-  
-  
-  
-  
-  <br /><br /><br /><br />
-  
-  <b>Based on:</b>
-  <hr />
 
-<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/a/AVvXsEg4CoIRaVnEAKm7vh0baJI6nr0ERKwn2DpYAlZQUOW3LTcoa1g5qZF7OJtm-26qyoK1tf2bpX-2c-hWY-6Alrn9Klkqw-nJ5mTYQFi4idPJRNplqh9ONUvrWCDNHOIjg0YegfzfmII6VYI0jjB8YXquzn0OAk8ChQrkscF-LI4yYxaJxtrK0-wVRGbBnQ=s1872" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" height="320" data-original-height="1872" data-original-width="852" src="https://blogger.googleusercontent.com/img/a/AVvXsEg4CoIRaVnEAKm7vh0baJI6nr0ERKwn2DpYAlZQUOW3LTcoa1g5qZF7OJtm-26qyoK1tf2bpX-2c-hWY-6Alrn9Klkqw-nJ5mTYQFi4idPJRNplqh9ONUvrWCDNHOIjg0YegfzfmII6VYI0jjB8YXquzn0OAk8ChQrkscF-LI4yYxaJxtrK0-wVRGbBnQ=s320"/></a></div>
-
-<p>As pdf:</p>
-<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="bscphysicsCU/17" data-width="100%"></script>
-
-<p>Full Cation analysis:</p>
-  
-  <script async="" data-telegram-post="bscphysicsCU/15" data-width="100%" src="https://telegram.org/js/telegram-widget.js?15"></script>
-  
-  If you can't access the pdf, use a VPN.
   
   
-  <br /><br />
-  <b>Credits:</b>
-  <hr />
-  Image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=154235">OpenClipart-Vectors</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=154235">Pixabay</a>
+  
   
    <!--Audio-->
   
