@@ -1,0 +1,159 @@
+
+
+  .addCation{
+               background-color: #1cadad;
+               color: white; font-size: 20px;
+             }
+  
+  .done   {  
+               background-color: #1898a3; color: white;  
+          }
+  .showResult  {
+                 background-color: #1cadad; border-radius: 50%; color: white;
+                  padding-bottom: 5px; padding-left: 10px; padding-right: 10px;
+                   padding-top: 5px; padding: 5px 10px;     
+                }
+  
+  #add-reagent-btn  {
+                      background-color: #1898a3; color: white;
+                    }
+  #cation {
+             background: white; bottom: 0px; display: none; height: 7px;
+              left: 25%; position: absolute; text-align: center;
+               width: 20px; z-index: 1;
+          } 
+          
+  .aligned {
+            display: flex;
+            align-items: center;
+            margin:20px;
+            
+           }
+  
+  
+    .greyboxhidden{
+      
+    background:#F0F0F0;
+     border-radius :5px;
+     border: solid black 2px;
+     padding-left:5px;
+      padding-right:5px; 
+      text-align:center;
+    }
+    
+   button{
+   border-radius :5px;
+
+   }
+
+
+   .btnadd{background-color:rgb(100, 168, 121);
+           color:white;       
+  }
+   .btnfun {background-color:rgb(148, 73, 73);
+             color:white; 
+  }
+    
+   /*The empty test tube */
+    #testtube {
+      border:solid red 2px;
+      border-bottom-left-radius:20px;
+      border-bottom-right-radius:20px;
+      width: 50px;
+      height: 150px;
+      background: silver;
+      overflow: hidden;
+      backface-visibility: hidden;
+      position:relative;
+      left:60px;
+      transition: all 2s;
+      margin:10px;
+    }
+   
+    
+  .CationHideOptions {
+    display:none;
+    opacity: 0;
+    font-size:20px; 
+    background:lightgrey;
+    
+      height: 0px;
+      
+       -webkit-transition: all 0.5s linear;
+          -moz-transition: all 0.5s linear;
+           -ms-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+               transition: all 0.5s linear;
+  }
+  
+  .CationShowOptions {
+    display:block;
+     opacity: 1;
+    font-size:20px; 
+    background:lightgrey;
+    
+       height: 200px;
+       -webkit-transition: all 0.5s linear;
+          -moz-transition: all 0.5s linear;
+           -ms-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+               transition: all 0.5s linear;
+  } 
+  
+  .ReagentHideOptions {
+    display:none;
+    opacity: 0;
+    font-size:20px; 
+    background:lightgrey;
+    
+      height: 0px;
+      
+       -webkit-transition: all 0.5s linear;
+          -moz-transition: all 0.5s linear;
+           -ms-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+               transition: all 0.5s linear;
+  }
+  
+  .ReagentShowOptions {
+    display:block;
+     opacity: 1;
+    font-size:20px; 
+    background:lightgrey;
+    
+       height: 250px;
+       -webkit-transition: all 0.5s linear;
+          -moz-transition: all 0.5s linear;
+           -ms-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+               transition: all 0.5s linear;
+  }   
+    
+  
+  .fill {
+    
+    height:300px;
+    width:50px;
+    background-color: Cyan;
+    position:relative;
+    top:150px;
+    left:0px;
+    
+    transition: all 2s;
+    }
+  
+    
+    
+    
+   .precipitate {
+     height:300px;
+    width:50px;
+    background: black;
+   transition: background-color 2s ease;
+   
+     transform: translate(0, 150px);
+     transition: all cubic-bezier(.2, .6, .8, .4) 1s;
+    }
+   
+  
+    
