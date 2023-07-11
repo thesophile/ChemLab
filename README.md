@@ -1,4 +1,4 @@
-# abhinavpb-249.github.io
+# Virtual Chemistry Lab
 
  Virtual Lab for Chemistry Lab Cation Anlysis simulation.
  
