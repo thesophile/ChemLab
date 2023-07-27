@@ -17,49 +17,7 @@
   
       <div> <!--Left side-->
   
-        <div id="addcationcontainer">
-          <button onclick="CationShowOptions();" class="addCation">
-            Add Cation
-          </button>
-        </div>
-  
-        <div class="CationHideOptions">
-  
-          <input id="Pb" name="choice" type="radio" value="Pb" />
-          <label>Pb (lead)</label>
-          <br />
-          <input id="Cu" name="choice" type="radio" value="Cu" />
-          <label>Cu (Copper)</label>
-          <br />
-          <input id="Bi" name="choice" type="radio" value="Bi" />
-          <label>Bi (Bismuth)</label>
-          <br />
-          <input id="Cd" name="choice" type="radio" value="Cd" />
-          <label>Cd(Cadmium)</label>
-          <br />
-          <input id="Fe" name="choice" type="radio" value="Fe" />
-          <label>Fe (Iron) </label>
-          <br />
-          <input id="Cr" name="choice" type="radio" value="Cr" />
-          <label>Cr (Chromium) </label>
-          <br />
-          <input id="Al" name="choice" type="radio" value="Al" />
-          <label>Al (Aluminium) </label>
-          <br />
-          <input id="Zn" name="choice" type="radio" value="Zn" />
-          <label>Zn (Zinc) </label>
-          <br />
-          <input id="Mn" name="choice" type="radio" value="Mn" />
-          <label>Mn (Manganese) </label>
-          <br />
-          <input id="Ba" name="choice" type="radio" value="Ba" />
-          <label>Ba (Barium) </label>
-          <br />
-  
-          <button onclick="cationselected();CationHideOptions();" class="done">
-            Done
-          </button>
-        </div>
+ 
   
   
         <div id="dividebuttons" style="display: none;">
@@ -112,48 +70,7 @@
   
   
   
-        <div class="ReagentHideOptions" id="reagentselection" style="background: lightgrey; font-size: 20px;">
-          <input id="dil.HCl" name="reagent" type="radio" value="dil.HCl" />
-          <label>dil.HCl</label>
-          <br />
-          <input id="con.HCl" name="reagent" type="radio" value="con.HCl" />
-          <label>con.HCl</label>
-          <br />
-          <input id="H2S" name="reagent" type="radio" value="H2S" />
-          <label>H2S</label>
-          <br />
-          <input id="NaOH" name="reagent" type="radio" value="NaOH" />
-          <label>NaOH</label>
-  
-          <br />
-          <input id="NH4Cl" name="reagent" type="radio" value="NH4Cl" />
-          <label>NH4Cl</label>
-          <br />
-          <input id="NH4OH" name="reagent" type="radio" value="NH4OH" />
-          <label>NH4OH</label>
-          <br />
-          <input id="NH4CO3" name="reagent" type="radio" value="NH4CO3" />
-          <label>(NH4)2CO3 </label>
-  
-          <br />
-          <input id="Acetic" name="reagent" type="radio" value="Acetic" />
-          <label> Acetic Acid </label>
-          <br />
-          <input id="Nessler" name="reagent" type="radio" value="Nessler" />
-          <label> Nessler′s reagent </label>
-          <br />
-          <input id="Chromate" name="reagent" type="radio" value="Chromate" />
-          <label>Potassium chromate</label>
-          <br />
-          <input id="Iodide" name="reagent" type="radio" value="Iodide" />
-          <label>potassium iodide</label>
-          <br />
-  
-          <button id="add-reagent-btn" onclick="Reagentselected();playfillsound();">
-            Done
-          </button>
-  
-        </div>
+        
   
       </div> <!--Left side-->
   
@@ -165,11 +82,102 @@
   
   
       <div><!--Right side-->
+
+        <div id="addcationcontainer">
+          <button onclick="CationShowOptions();" class="addCation">
+            Add Cation
+          </button>
+
+          <div class="CationHideOptions">
+  
+          <input id="Pb" name="choice" type="radio" value="Pb" />
+          <label>Pb (lead)</label>
+          <br />
+          <input id="Cu" name="choice" type="radio" value="Cu" />
+          <label>Cu (Copper)</label>
+          <br />
+          <input id="Bi" name="choice" type="radio" value="Bi" />
+          <label>Bi (Bismuth)</label>
+          <br />
+          <input id="Cd" name="choice" type="radio" value="Cd" />
+          <label>Cd(Cadmium)</label>
+          <br />
+          <input id="Fe" name="choice" type="radio" value="Fe" />
+          <label>Fe (Iron) </label>
+          <br />
+          <input id="Cr" name="choice" type="radio" value="Cr" />
+          <label>Cr (Chromium) </label>
+          <br />
+          <input id="Al" name="choice" type="radio" value="Al" />
+          <label>Al (Aluminium) </label>
+          <br />
+          <input id="Zn" name="choice" type="radio" value="Zn" />
+          <label>Zn (Zinc) </label>
+          <br />
+          <input id="Mn" name="choice" type="radio" value="Mn" />
+          <label>Mn (Manganese) </label>
+          <br />
+          <input id="Ba" name="choice" type="radio" value="Ba" />
+          <label>Ba (Barium) </label>
+          <br />
+  
+          <button onclick="cationselected();CationHideOptions();" class="done">
+            Done
+          </button>
+        </div>
+        </div>
+  
+        
+
+        <hr>
   
         <div id="add">
           <button class="btnadd" id="add-water-btn" onclick="water();playfillsound();">Add water</button>
   
           <button class="btnadd" id="addreagent" onclick="ReagentShowOptions();">Reagents</button>
+
+          <div class="ReagentHideOptions" id="reagentselection" style="background: lightgrey; font-size: 20px;">
+            <input id="dil.HCl" name="reagent" type="radio" value="dil.HCl" />
+            <label>dil.HCl</label>
+            <br />
+            <input id="con.HCl" name="reagent" type="radio" value="con.HCl" />
+            <label>con.HCl</label>
+            <br />
+            <input id="H2S" name="reagent" type="radio" value="H2S" />
+            <label>H2S</label>
+            <br />
+            <input id="NaOH" name="reagent" type="radio" value="NaOH" />
+            <label>NaOH</label>
+    
+            <br />
+            <input id="NH4Cl" name="reagent" type="radio" value="NH4Cl" />
+            <label>NH4Cl</label>
+            <br />
+            <input id="NH4OH" name="reagent" type="radio" value="NH4OH" />
+            <label>NH4OH</label>
+            <br />
+            <input id="NH4CO3" name="reagent" type="radio" value="NH4CO3" />
+            <label>(NH4)2CO3 </label>
+    
+            <br />
+            <input id="Acetic" name="reagent" type="radio" value="Acetic" />
+            <label> Acetic Acid </label>
+            <br />
+            <input id="Nessler" name="reagent" type="radio" value="Nessler" />
+            <label> Nessler′s reagent </label>
+            <br />
+            <input id="Chromate" name="reagent" type="radio" value="Chromate" />
+            <label>Potassium chromate</label>
+            <br />
+            <input id="Iodide" name="reagent" type="radio" value="Iodide" />
+            <label>potassium iodide</label>
+            <br />
+    
+            <button id="add-reagent-btn" onclick="Reagentselected();playfillsound();">
+              Done
+            </button>
+    
+          </div>
         </div>
   
         <hr />

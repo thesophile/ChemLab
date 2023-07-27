@@ -75,17 +75,19 @@
     
   .CationHideOptions {
     display:none;
-    opacity: 0;
+    /* opacity: 0; */
     font-size:20px; 
     background:lightgrey;
     
-      height: 0px;
+    /* height: 0px; */
+    height: fit-content;
       
-       -webkit-transition: all 0.5s linear;
-          -moz-transition: all 0.5s linear;
-           -ms-transition: all 0.5s linear;
-            -o-transition: all 0.5s linear;
-               transition: all 0.5s linear;
+    transition-duration: 500ms;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
   }
   
   .CationShowOptions {
@@ -94,7 +96,7 @@
     font-size:20px; 
     background:lightgrey;
     
-       height: 200px;
+       height: fit-content;
        -webkit-transition: all 0.5s linear;
           -moz-transition: all 0.5s linear;
            -ms-transition: all 0.5s linear;
@@ -123,7 +125,7 @@
     font-size:20px; 
     background:lightgrey;
     
-       height: 250px;
+       height: fit-content;
        -webkit-transition: all 0.5s linear;
           -moz-transition: all 0.5s linear;
            -ms-transition: all 0.5s linear;
@@ -169,4 +171,8 @@
       border: 2px solid;
       padding: 20px;
       border-radius: 10px;
+    }
+
+    .btn-container{
+      position: relative;
     }
