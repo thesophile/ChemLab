@@ -47,7 +47,10 @@ header{
             
            }
   
-  
+.left{
+  margin-right: 10px;
+}
+
     .greyboxhidden{
       
     background:#F0F0F0;
