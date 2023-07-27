@@ -26,7 +26,9 @@
   .aligned {
             display: flex;
             align-items: center;
-            margin:20px;
+            justify-content: center;
+            height: fit-content;
+            margin: auto;
             
            }
   
@@ -43,12 +45,12 @@
     
    button{
    border-radius :5px;
-
+   font-size: 20px;  
    }
 
 
    .btnadd{background-color:rgb(100, 168, 121);
-           color:white;       
+           color:white; 
   }
    .btnfun {background-color:rgb(148, 73, 73);
              color:white; 
@@ -156,4 +158,15 @@
     }
    
   
-    
+    .center{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    .border{
+      border: 2px solid;
+      padding: 20px;
+      border-radius: 10px;
+    }
