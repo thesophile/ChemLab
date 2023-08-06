@@ -35,14 +35,13 @@
   
   
   
-        <div id="testtube">
-  
-          <div class="fill">
+        <div class="testtube-container">
+          <div id="testtube">
+            <div class="fill">
+            </div>
+            <div id="cation">
+            </div>
           </div>
-  
-          <div id="cation">
-          </div>
-  
         </div>
   
         <!--Bunsen Burner-->
@@ -57,15 +56,15 @@
         <div id="workbench" class="aligned">
   
   
-          <div class="greyboxhidden" id="Observation">
+          <div class="greyboxhidden" id="Observation" title="Result will be shown here">
             Intergroup Separation
           </div>
   
-          <div>
+          <!-- <div>
             <button onclick="ShowResult()" class="showResult" title="Result will be shown here">
               <b>?</b>
             </button>
-          </div>
+          </div> -->
   
           <p id="resulthidden" style="display: none;">
             Result will be shown here </p>
@@ -199,14 +198,13 @@
   
           <button class="btnfun" onclick="Concentrate()">Concentrate
           </button>
+
+          <br>
   
           <button class="btnfun" onclick="Heat();setTimeout(StopHeat,1500);">Heat
           </button>
   
           <button class="btnfun" onclick="Cool()">Cool</button>
-  
-  
-          <p style="margin-bottom: -7px;"> </p>
   
           <button class="btnfun" onclick="Boil();setTimeout(StopBoil,1500);">Boil
           </button>

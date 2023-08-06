@@ -23,11 +23,11 @@ header{
   .done   {  
                background-color: #1898a3; color: white;  
           }
-  .showResult  {
+  /* .showResult  {
                  background-color: #1cadad; border-radius: 50%; color: white;
                   padding-bottom: 5px; padding-left: 10px; padding-right: 10px;
                    padding-top: 5px; padding: 5px 10px;     
-                }
+                } */
   
   #add-reagent-btn  {
                       background-color: #1898a3; color: white;
@@ -72,6 +72,7 @@ header{
   }
    .btnfun {background-color:rgb(148, 73, 73);
              color:white; 
+             margin: 5px 0px;
   }
     
    /*The empty test tube */
@@ -85,7 +86,7 @@ header{
       overflow: hidden;
       backface-visibility: hidden;
       position:relative;
-      left:60px;
+      /* left:60px; */
       transition: all 2s;
       margin:10px;
     }
@@ -203,4 +204,9 @@ header{
       display: flex;
       justify-content: space-between;
       margin: 10px ;
+    }
+
+    .testtube-container{
+      display: flex;
+      justify-content: center;
     }
