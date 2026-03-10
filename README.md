@@ -2,11 +2,13 @@
 
 Virtual Chemistry Lab for Cation Analysis Simulation
 
-I spend way too much time on this than I needed to have. 
+Was learning javascript - had fun - but could have made the code more efficient.
 
-I was just learning Javascript anyways...
+Anyway, its neither complete not usable, any contributions are welcome.
+If done right, could be useful for students learning chemistry.
 
 Here is the Website: https://thesophile.github.io/ChemLab/
+
  
 
 
